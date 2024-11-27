@@ -10,7 +10,7 @@ local util = require("util")
 
 local textclock_container = wibox.container.background(wibox.widget({
 	widget = wibox.widget.textclock,
-	format = '<span color="' .. beautiful.fg_normal .. '" font="Ubuntu Nerd Font Bold 16">%H\n%M</span>',
+	format = '<span color="' .. theme.fg_normal .. '" font="Ubuntu Nerd Font Bold 16">%H\n%M</span>',
 	refresh = 20,
 	valign = "center",
 	halign = "center",

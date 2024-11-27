@@ -32,6 +32,14 @@ theme.rounded = dpi(4)
 theme.spacing = dpi(4)
 
 -------------------------
+--client-----------------
+-------------------------
+
+theme.client_border_width = dpi(2)
+theme.border_color = color.fg_normal
+theme.border_color_active = color.red
+
+-------------------------
 --bar--------------------
 -------------------------
 
@@ -45,10 +53,10 @@ theme.border_color = color.mid_normal
 --tags-------------------
 -------------------------
 
-theme.tags_focused = color.yellow
+theme.tags_focused = color.purple
 theme.tags_focused_height = dpi(50)
 
-theme.tags_unfocused = color.green
+theme.tags_unfocused = color.bg_light
 theme.tags_unfocused_height = dpi(20)
 
 theme.tags_unfocused_full = color.cyan

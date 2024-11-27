@@ -1,3 +1,4 @@
+local gears = require("gears")
 local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
@@ -17,19 +18,27 @@ local create_tasklist = function(s)
 			screen = s,
 			filter = awful.widget.tasklist.filter.currenttags,
 			buttons = tasklist_buttons,
-			spacing = dpi(20),
 			layout = {
 				layout = wibox.layout.fixed.vertical,
+				spacing_widget = {
+					{
+						forced_width = dpi(100),
+						forced_height = dpi(24),
+						thickness = dpi(10),
+						color = "#f00",
+						widget = wibox.widget.separator,
+					},
+					valign = "center",
+					halign = "center",
+					widget = wibox.container.place,
+				},
+				spacing = 10,
 			},
-			bg = "#f00",
-			bg_normal = "#f00",
-			bg_focus = "#f00",
 		}),
 		dpi(5),
 		dpi(5),
 		dpi(5),
-		dpi(5),
-		"#00000000"
+		dpi(5)
 	))
 
 	tasklist_container.bg = theme.bg_normal

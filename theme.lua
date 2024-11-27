@@ -30,6 +30,23 @@ theme.border_normal = "#000000"
 theme.border_focus = "#535d6c"
 theme.border_marked = "#91231c"
 
+-------------------------
+--tag preview------------
+-------------------------
+theme.tag_preview_widget_border_radius = dpi(0) -- Border radius of the widget (With AA)
+theme.tag_preview_client_border_radius = dpi(0) -- Border radius of each client in the widget (With AA)
+theme.tag_preview_client_opacity = 0.5 -- Opacity of each client
+theme.tag_preview_client_bg = "#f0f" -- The bg color of each client
+theme.tag_preview_client_border_color = "#ff0" -- The border color of each client
+theme.tag_preview_client_border_width = 3 -- The border width of each client
+theme.tag_preview_widget_bg = "#f0f" -- The bg color of the widget
+theme.tag_preview_widget_border_color = "#ff0" -- The border color of the widget
+theme.tag_preview_widget_border_width = 3 -- The border width of the widget
+theme.tag_preview_widget_margin = 0 -- The margin of the widget
+
+theme.flash_focus_start_opacity = 0.6 -- the starting opacity
+theme.flash_focus_step = 0.01 -- the step of animation
+
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:

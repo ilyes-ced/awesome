@@ -27,17 +27,27 @@ local decide_rounded = function()
 end
 
 local create_bar = function(s)
+	-- could be wrong
+	local height
+	if s.index == 1 then
+		height = s.workarea.height
+	elseif s.index == 2 then
+		height = s.workarea.height
+	else
+		height = s.workarea.height
+	end
 	-- Create a tasklist widget
 	-- Create the wibox
 	s.mywibox = awful.wibar({
 		width = dpi(50 + theme.spacing * 2),
 		screen = s,
 		position = "left",
-		height = awful.screen.focused().workarea.height,
+		height = height,
 		bg = "#00000000",
 		widget = wibox.container.background,
 		x = dpi(00),
 		shape = util.rect(0),
+		--stretch = true,
 	})
 
 	-- Add widgets to the wibox

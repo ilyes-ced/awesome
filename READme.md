@@ -14,3 +14,11 @@
   - [] theme changer
   - [] screenshot
   - [] audio stuff (pause/play, audio up/down)
+
+
+
+### tweaks
+- [] fix bar for each screen
+- [] add colros to task list
+- [] give empty tasklist minimum height
+- [] rounded clients

@@ -62,11 +62,11 @@ local create_taglist = function(s)
 							awesome.emit_signal("bling::tag_preview::visibility", s, true)
 						end
 
-						if self.bg ~= "#ff0000" then
+						if self.bg ~= color.orange then
 							self.backup = self.bg
 							self.has_backup = true
 						end
-						self.bg = "#ff0000"
+						self.bg = color.orange
 					end)
 					self:connect_signal("mouse::leave", function()
 						-- BLING: Turn the widget off
