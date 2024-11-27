@@ -7,23 +7,24 @@ local dpi = xresources.apply_dpi
 
 local util = require("util")
 local color = require("themes.colors")
+local theme = require("themes.theme")
 
 local taglist_buttons = require("bindings.mouse.taglist")
 
 local update_tag = function(self, c3, _)
 	if c3.selected then
-		self:get_children_by_id("tags")[1].forced_height = dpi(45)
-		self:get_children_by_id("tags")[1].bg = color.lightblue
+		self:get_children_by_id("tags")[1].forced_height = theme.tags_focused_height
+		self:get_children_by_id("tags")[1].bg = theme.tags_focused
 	elseif #c3:clients() == 0 then
-		self:get_children_by_id("tags")[1].forced_height = dpi(20)
-		self:get_children_by_id("tags")[1].bg = color.mid_dark
+		self:get_children_by_id("tags")[1].forced_height = theme.tags_unfocused_height
+		self:get_children_by_id("tags")[1].bg = theme.tags_unfocused
 	else
 		if c3.urgent then
-			self:get_children_by_id("tags")[1].forced_height = dpi(35)
-			self:get_children_by_id("tags")[1].bg = color.orange
+			self:get_children_by_id("tags")[1].forced_height = theme.tags_urgent_height
+			self:get_children_by_id("tags")[1].bg = theme.tags_urgent
 		else
-			self:get_children_by_id("tags")[1].forced_height = dpi(35)
-			self:get_children_by_id("tags")[1].bg = color.fg_normal
+			self:get_children_by_id("tags")[1].forced_height = theme.tags_unfocused_full_height
+			self:get_children_by_id("tags")[1].bg = theme.tags_unfocused_full
 		end
 	end
 end
@@ -87,9 +88,10 @@ local create_taglist = function(s)
 		dpi(10),
 		dpi(10)
 	))
-	taglist_container.bg = "#222222"
-	taglist_container.border_width = dpi(1)
-	taglist_container.shape = util.rect(dpi(1))
+	taglist_container.bg = theme.bg_normal
+	taglist_container.border_width = theme.border_width
+	taglist_container.border_color = theme.border_color
+	taglist_container.shape = util.rect(theme.rounded)
 
 	local taglist = util.margin(taglist_container, 5, 5, 5, 5)
 

@@ -5,6 +5,8 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
+local xresources = require("beautiful.xresources")
+local dpi = beautiful.xresources.apply_dpi
 local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
@@ -13,6 +15,7 @@ require("init")
 local mymainmenu = require("popups.menu")
 local user = require("user")
 beautiful.init("~/.config/awesome/theme.lua")
+local theme = require("themes.theme")
 
 local bling = require("bling")
 bling.module.flash_focus.enable()
@@ -70,3 +73,6 @@ bling.widget.tag_preview.enable({
 		widget = wibox.widget.imagebox,
 	}),
 })
+
+beautiful.gap_single_client = true
+beautiful.useless_gap = theme.spacing

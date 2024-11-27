@@ -7,6 +7,7 @@ local dpi = beautiful.xresources.apply_dpi
 local util = require("util")
 --Colors
 local color = require("themes.colors")
+local theme = require("themes.theme")
 
 local mylayoutbox = awful.widget.layoutbox()
 mylayoutbox:buttons(gears.table.join(
@@ -25,15 +26,15 @@ mylayoutbox:buttons(gears.table.join(
 ))
 
 local layoutbox = wibox.widget({
-	{
+	{ {
 		mylayoutbox,
 		widget = wibox.container.place,
-	},
+	}, widget = wibox.container.margin, margins = dpi(10) },
 	widget = wibox.container.background,
-	bg = color.bg_dim,
-	shape = util.rect(dpi(1)),
-	border_width = dpi(1),
-	bg = color.bg_normal,
+	bg = theme.bg_normal,
+	border_width = theme.border_width,
+	border_color = theme.border_color,
+	shape = util.rect(theme.rounded),
 })
 local btn = util.margin(layoutbox, 5, 5, 5, 5)
 util.add_hover_effect(btn, color.bg_normal, color.bg_light, color.bg_dim)

@@ -9,11 +9,11 @@ local taglist_buttons = require("bindings.mouse.taglist")
 local tasklist_buttons = require("bindings.mouse.tasklist")
 
 local function set_wallpaper(s)
-	bling.module.tiled_wallpaper("0", s, { -- call the actual function ("x" is the string that will be tiled)
+	bling.module.tiled_wallpaper("////", s, { -- call the actual function ("x" is the string that will be tiled)
 		fg = "#FAD8D6", -- define the foreground color
 		bg = "#2E282A", -- define the background color
-		offset_y = 25, -- set a y offset
-		offset_x = 25, -- set a x offset
+		offset_y = 2, -- set a y offset
+		offset_x = 2, -- set a x offset
 		font = "jetBrainsMonoNerdFon", -- set the font (without the size)
 		font_size = 18, -- set the font size
 		padding = 50, -- set padding (default is 100)

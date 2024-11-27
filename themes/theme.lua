@@ -1,10 +1,13 @@
 local user = require("user")
 local color = require("themes.colors")
-local helpers = require("helpers")
+local util = require("util")
 local theme = {}
+local beautiful = require("beautiful")
+local xresources = require("beautiful.xresources")
+local dpi = beautiful.xresources.apply_dpi
 
 theme.useless_gap = 4
-theme.font = "Ubuntu Nerd Font 12"
+theme.font = "jetBrainsMonoNerdFont 12"
 theme.wallpaper = user.wallpaper
 
 local layout_path = "/usr/share/awesome/themes/default/layouts/"
@@ -16,7 +19,7 @@ local titlebar_path = user.theme == "biscuit_dark" and os.getenv("HOME") .. "/.c
 -------------------------
 theme.fg = color.fg_normal
 theme.bg = color.bg_dark
-theme.bg_normal = color.bg_dark
+theme.bg_normal = color.bg_normal
 theme.fg_normal = color.mid_light
 theme.bg_focus = color.mid_dark
 theme.fg_focus = color.fg_normal
@@ -24,6 +27,39 @@ theme.border_width = 1
 theme.border_normal = "#000000"
 theme.border_focus = "#535d6c"
 theme.logout_box_bg = "#00000090"
+
+theme.rounded = dpi(4)
+theme.spacing = dpi(4)
+
+-------------------------
+--bar--------------------
+-------------------------
+
+theme.bar_bg = color.bg_dark
+theme.bar_light_bg = color.bg_normal
+
+theme.border_width = dpi(0)
+theme.border_color = color.mid_normal
+
+-------------------------
+--tags-------------------
+-------------------------
+
+theme.tags_focused = color.yellow
+theme.tags_focused_height = dpi(50)
+
+theme.tags_unfocused = color.green
+theme.tags_unfocused_height = dpi(20)
+
+theme.tags_unfocused_full = color.cyan
+theme.tags_unfocused_full_height = dpi(50)
+
+theme.tags_urgent = color.red
+theme.tags_urgent_height = dpi(20)
+
+-------------------------
+--buttons----------------
+-------------------------
 
 --------------------------
 --Layout icons------------
@@ -105,7 +141,7 @@ theme.tasklist_shape_border_color_urgent = color.yellow
 theme.menu_width = 220
 theme.menu_height = 35
 theme.menu_font = "Ubuntu nerd font 15"
-theme.menu_bg_normal = color.bg_dark
+theme.menu_bg_normal = "#ff0000"
 theme.menu_bg_focus = color.lightblue
 theme.menu_fg_normal = color.fg_normal
 theme.menu_fg_focus = color.bg_dark
@@ -119,6 +155,6 @@ theme.notification_font = "Ubuntu nerd font 13"
 theme.notification_border_width = 1
 theme.notification_border_color = color.bg_dim
 theme.notification_width = 350
-theme.notification_shape = helpers.rrect(8)
+theme.notification_shape = util.rect(8)
 
 return theme
