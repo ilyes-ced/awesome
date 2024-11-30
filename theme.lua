@@ -8,6 +8,7 @@ local dpi = xresources.apply_dpi
 
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
+local active_theme = require("themes.theme")
 
 local theme = {}
 
@@ -33,19 +34,40 @@ theme.border_marked = "#91231c"
 -------------------------
 --tag preview------------
 -------------------------
-theme.tag_preview_widget_border_radius = dpi(0) -- Border radius of the widget (With AA)
-theme.tag_preview_client_border_radius = dpi(0) -- Border radius of each client in the widget (With AA)
-theme.tag_preview_client_opacity = 0.5 -- Opacity of each client
-theme.tag_preview_client_bg = "#f0f" -- The bg color of each client
-theme.tag_preview_client_border_color = "#ff0" -- The border color of each client
-theme.tag_preview_client_border_width = 3 -- The border width of each client
-theme.tag_preview_widget_bg = "#f0f" -- The bg color of the widget
-theme.tag_preview_widget_border_color = "#ff0" -- The border color of the widget
-theme.tag_preview_widget_border_width = 3 -- The border width of the widget
+theme.tag_preview_widget_border_radius = active_theme.rounded -- Border radius of the widget (With AA)
+theme.tag_preview_client_border_radius = active_theme.rounded -- Border radius of each client in the widget (With AA)
+theme.tag_preview_client_opacity = 1 -- Opacity of each client
+theme.tag_preview_client_bg = active_theme.purple -- The bg color of each client
+theme.tag_preview_client_border_width = active_theme.tag_preview_border_width -- The border width of each client
+theme.tag_preview_client_border_color = active_theme.tag_preview_border_color -- The border color of each client
+theme.tag_preview_widget_bg = active_theme.purple -- The bg color of the widget
+theme.tag_preview_widget_border_width = active_theme.tag_preview_border_width -- The border width of the widget
+theme.tag_preview_widget_border_color = active_theme.tag_preview_border_color -- The border color of the widget
 theme.tag_preview_widget_margin = 0 -- The margin of the widget
 
-theme.flash_focus_start_opacity = 0.6 -- the starting opacity
-theme.flash_focus_step = 0.01 -- the step of animation
+-------------------------
+--window switcher--------
+-------------------------
+
+theme.window_switcher_widget_bg = active_theme.window_switcher_bg -- The bg color of the widget
+theme.window_switcher_widget_border_width = active_theme.window_switcher_border_width -- The border width of the widget
+theme.window_switcher_widget_border_color = active_theme.window_switcher_border_color -- The border color of the widget
+theme.window_switcher_widget_border_radius = active_theme.window_switcher_border_radius -- The border radius of the widget
+theme.window_switcher_clients_spacing = 20 -- The space between each client item
+theme.window_switcher_client_icon_horizontal_spacing = 5 -- The space between client icon and text
+theme.window_switcher_client_width = 400 -- The width of one client widget
+theme.window_switcher_client_height = 400 -- The height of one client widget
+theme.window_switcher_client_margins = 10 -- The margin between the content and the border of the widget
+theme.window_switcher_thumbnail_margins = 10 -- The margin between one client thumbnail and the rest of the widget
+theme.thumbnail_scale = false -- If set to true, the thumbnails fit policy will be set to "fit" instead of "auto"
+theme.window_switcher_name_margins = 10 -- The margin of one clients title to the rest of the widget
+theme.window_switcher_name_valign = "center" -- How to vertically align one clients title
+theme.window_switcher_name_forced_width = 200 -- The width of one title
+theme.window_switcher_name_font = active_theme.font -- The font of all titles
+theme.window_switcher_name_normal_color = active_theme.window_switcher_name_normal_color -- The color of one title if the client is unfocused
+theme.window_switcher_name_focus_color = active_theme.window_switcher_name_focus_color -- The color of one title if the client is focused
+theme.window_switcher_icon_valign = "center" -- How to vertically align the one icon
+theme.window_switcher_icon_width = 40 -- The width of one icon
 
 -- There are other variable sets
 -- overriding the default one when
@@ -84,7 +106,7 @@ theme.menu_width = dpi(100)
 --theme.bg_widget = "#cc0000"
 
 -- Define the image to load
-theme.titlebar_close_button_normal = themes_path .. "default/titlebar/close_normal.png"
+theme.titlebar_close_button_normal = "/home/dude/.config/awesome/assets/close_hover.png"
 theme.titlebar_close_button_focus = themes_path .. "default/titlebar/close_focus.png"
 
 theme.titlebar_minimize_button_normal = themes_path .. "default/titlebar/minimize_normal.png"

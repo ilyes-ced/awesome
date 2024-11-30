@@ -89,8 +89,8 @@ local create_taglist = function(s)
 		dpi(10)
 	))
 	taglist_container.bg = theme.bg_normal
-	taglist_container.border_width = theme.border_width
-	taglist_container.border_color = theme.border_color
+	taglist_container.border_width = theme.bar_border_width
+	taglist_container.border_color = theme.bar_border_color
 	taglist_container.shape = util.rect(theme.rounded)
 
 	local taglist = util.margin(taglist_container, 5, 5, 5, 5)

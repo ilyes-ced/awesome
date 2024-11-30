@@ -7,18 +7,18 @@ local colorschemes = {
 	yoru = require("themes.colors.yoru"),
 	tokyonight = require("themes.colors.tokyonight"),
 	oxocarbon = require("themes.colors.oxocarbon"),
-	rosepine_dawn = require("themes.colors.rosepine_dawn")
+	rosepine_dawn = require("themes.colors.rosepine_dawn"),
 }
 
-if user.theme == 'biscuit_dark' then
+if user.theme == "biscuit_dark" then
 	color = colorschemes.biscuit_dark
-elseif user.theme == 'adwaita' then
+elseif user.theme == "adwaita" then
 	color = colorschemes.adwaita
-elseif user.theme == 'yoru' then
+elseif user.theme == "yoru" then
 	color = colorschemes.yoru
-elseif user.theme == 'oxocarbon' then
+elseif user.theme == "oxocarbon" then
 	color = colorschemes.oxocarbon
-elseif user.theme == 'rosepine_dawn' then
+elseif user.theme == "rosepine_dawn" then
 	color = colorschemes.rosepine_dawn
 else
 	color = colorschemes.tokyonight

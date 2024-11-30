@@ -12,6 +12,12 @@ funcs.rect = function(radius)
 	end
 end
 
+funcs.part_rect = function(tl, tr, br, bl, radius)
+	return function(cr, width, height)
+		gears.shape.partially_rounded_rect(cr, width, height, tl, tr, br, bl, radius)
+	end
+end
+
 funcs.margin = function(wgt, ml, mr, mt, mb)
 	return wibox.widget({
 		wgt,

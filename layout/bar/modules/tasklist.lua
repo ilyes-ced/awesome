@@ -42,8 +42,8 @@ local create_tasklist = function(s)
 	))
 
 	tasklist_container.bg = theme.bg_normal
-	tasklist_container.border_width = theme.border_width
-	tasklist_container.border_color = theme.border_color
+	tasklist_container.border_width = theme.bar_border_width
+	tasklist_container.border_color = theme.bar_border_color
 	tasklist_container.shape = util.rect(theme.rounded)
 
 	local tasklist = util.margin(tasklist_container, 5, 5, 5, 5)

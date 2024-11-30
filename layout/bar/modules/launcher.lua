@@ -19,8 +19,8 @@ local button_bg = wibox.widget({
 	},
 	widget = wibox.container.background,
 	bg = theme.bg_normal,
-	border_width = theme.border_width,
-	border_color = theme.border_color,
+	border_width = theme.bar_border_width,
+	border_color = theme.bar_border_color,
 	shape = util.rect(theme.rounded),
 })
 

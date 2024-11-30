@@ -4,6 +4,7 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 local dpi = beautiful.xresources.apply_dpi
+local color = require("themes.colors")
 
 local sep = wibox.widget.textbox(" ")
 sep.forced_width = dpi(50)
@@ -23,24 +24,30 @@ client.connect_signal("request::titlebars", function(c)
 		end)
 	)
 
-	awful.titlebar(c, { position = "left" }):setup({
-		{ -- Left
-			awful.titlebar.widget.iconwidget(c),
-			buttons = buttons,
-			layout = wibox.layout.fixed.vertical,
-		},
-		{ -- Middle
-			buttons = buttons,
-			layout = wibox.layout.flex.vertical,
-		},
-		{ -- Right
-			awful.titlebar.widget.floatingbutton(c),
-			awful.titlebar.widget.maximizedbutton(c),
-			awful.titlebar.widget.stickybutton(c),
-			awful.titlebar.widget.ontopbutton(c),
-			awful.titlebar.widget.closebutton(c),
-			layout = wibox.layout.fixed.vertical(),
-		},
-		layout = wibox.layout.align.vertical,
-	})
+	awful
+		.titlebar(c, {
+			position = "left",
+			bg_normal = color.bg_dark,
+			bg_focus = color.bg_light,
+		})
+		:setup({
+			{ -- Left
+				awful.titlebar.widget.iconwidget(c),
+				buttons = buttons,
+				layout = wibox.layout.fixed.vertical,
+			},
+			{ -- Middle
+				buttons = buttons,
+				layout = wibox.layout.flex.vertical,
+			},
+			{ -- Right
+				awful.titlebar.widget.floatingbutton(c),
+				awful.titlebar.widget.maximizedbutton(c),
+				awful.titlebar.widget.stickybutton(c),
+				awful.titlebar.widget.ontopbutton(c),
+				awful.titlebar.widget.closebutton(c),
+				layout = wibox.layout.fixed.vertical(),
+			},
+			layout = wibox.layout.align.vertical,
+		})
 end)

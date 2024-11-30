@@ -33,9 +33,11 @@ client.connect_signal("mouse::enter", function(c)
 end)
 
 client.connect_signal("focus", function(c)
-	c.border_color = theme.border_color_active
+	c.border_color = theme.client_border_color_active
+	--c.opacity = 1
 end)
 client.connect_signal("unfocus", function(c)
-	c.border_color = theme.border_color
+	c.border_color = theme.client_border_color
+	--c.opacity = 0.8
 end)
 -- }}}

@@ -2,19 +2,19 @@ local gears = require("gears")
 local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
-local user = require("beautiful")
 local bling = require("bling")
+local color = require("themes.colors")
 
 local taglist_buttons = require("bindings.mouse.taglist")
 local tasklist_buttons = require("bindings.mouse.tasklist")
 
 local function set_wallpaper(s)
-	bling.module.tiled_wallpaper("////", s, { -- call the actual function ("x" is the string that will be tiled)
-		fg = "#FAD8D6", -- define the foreground color
-		bg = "#2E282A", -- define the background color
-		offset_y = 2, -- set a y offset
-		offset_x = 2, -- set a x offset
-		font = "jetBrainsMonoNerdFon", -- set the font (without the size)
+	bling.module.tiled_wallpaper("󰝤", s, { -- call the actual function ("x" is the string that will be tiled)
+		fg = color.red, -- define the foreground color
+		bg = color.bg_normal, -- define the background color
+		offset_y = 4, -- set a y offset
+		offset_x = 4, -- set a x offset
+		font = "jetBrainsMonoNerdFont", -- set the font (without the size)
 		font_size = 18, -- set the font size
 		padding = 50, -- set padding (default is 100)
 		zickzack = false, -- rectangular pattern or criss cross

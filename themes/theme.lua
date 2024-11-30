@@ -23,7 +23,7 @@ theme.bg_normal = color.bg_normal
 theme.fg_normal = color.mid_light
 theme.bg_focus = color.mid_dark
 theme.fg_focus = color.fg_normal
-theme.border_width = 1
+theme.border_width = dpi(2)
 theme.border_normal = "#000000"
 theme.border_focus = "#535d6c"
 theme.logout_box_bg = "#00000090"
@@ -36,8 +36,8 @@ theme.spacing = dpi(4)
 -------------------------
 
 theme.client_border_width = dpi(2)
-theme.border_color = color.fg_normal
-theme.border_color_active = color.red
+theme.client_border_color = color.fg_normal
+theme.client_border_color_active = color.red
 
 -------------------------
 --bar--------------------
@@ -46,8 +46,8 @@ theme.border_color_active = color.red
 theme.bar_bg = color.bg_dark
 theme.bar_light_bg = color.bg_normal
 
-theme.border_width = dpi(0)
-theme.border_color = color.mid_normal
+theme.bar_border_width = dpi(2)
+theme.bar_border_color = color.red
 
 -------------------------
 --tags-------------------
@@ -66,8 +66,45 @@ theme.tags_urgent = color.red
 theme.tags_urgent_height = dpi(20)
 
 -------------------------
---buttons----------------
+--tag preview------------
 -------------------------
+
+theme.tag_preview_border_width = dpi(2)
+theme.tag_preview_border_color = color.mid_normal
+
+-------------------------
+--window switcher--------
+-------------------------
+
+theme.window_switcher_bg = color.bg_dark
+theme.window_switcher_border_width = dpi(2)
+theme.window_switcher_border_color = color.mid_normal
+theme.window_switcher_border_radius = theme.rounded
+
+theme.window_switcher_name_normal_color = color.purple
+theme.window_switcher_name_focus_color = color.red
+
+-------------------------
+--app launcher ----------
+-------------------------
+
+theme.launcher_bg = color.bg_dark
+theme.launcher_border_width = dpi(2)
+theme.launcher_border_color = color.purple
+
+theme.prompt_bg = color.bg_normal
+theme.prompt_border_width = dpi(2)
+theme.prompt_border_color = color.purple
+theme.prompt_icon_color = color.mid_light
+theme.prompt_text_color = color.fg_normal
+theme.prompt_cursor_color = color.mid_light
+
+theme.app_bg = color.bg_dim
+theme.app_normal_hover_color = color.mid_normal
+theme.app_selected_color = color.mid_light
+theme.app_selected_hover_color = color.fg_normal
+theme.app_name_normal_color = color.fg_normal
+theme.app_name_selected_color = color.bg_dark
 
 --------------------------
 --Layout icons------------

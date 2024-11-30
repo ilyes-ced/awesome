@@ -11,7 +11,11 @@ app_launcher = require("popups.launcher")
 globalkeys = gears.table.join(
 
 	awful.key({ modkey }, "a", function()
-		app_launcher:toggle()
+		if awful.screen.focused() == screen[1] then
+			app_launcher:toggle()
+		else
+			app_launcher:toggle()
+		end
 	end, { description = "show help", group = "awesome" }),
 
 	awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
@@ -44,10 +48,11 @@ globalkeys = gears.table.join(
 	end, { description = "focus the previous screen", group = "screen" }),
 	awful.key({ modkey }, "u", awful.client.urgent.jumpto, { description = "jump to urgent client", group = "client" }),
 	awful.key({ "Mod1" }, "Tab", function()
-		awful.client.focus.history.previous()
-		if client.focus then
-			client.focus:raise()
-		end
+		awesome.emit_signal("bling::window_switcher::turn_on")
+		--awful.client.focus.history.previous()
+		--if client.focus then
+		--	client.focus:raise()
+		--end
 	end, { description = "go back", group = "client" }),
 
 	-- Standard program
@@ -95,14 +100,14 @@ globalkeys = gears.table.join(
 		awful.screen.focused().mypromptbox:run()
 	end, { description = "run prompt", group = "launcher" }),
 
-	awful.key({ modkey }, "x", function()
-		awful.prompt.run({
-			prompt = "Run Lua code: ",
-			textbox = awful.screen.focused().mypromptbox.widget,
-			exe_callback = awful.util.eval,
-			history_path = awful.util.get_cache_dir() .. "/history_eval",
-		})
-	end, { description = "lua execute prompt", group = "awesome" }),
+	--awful.key({ modkey }, "x", function()
+	--	awful.prompt.run({
+	--		prompt = "Run Lua code: ",
+	--		textbox = awful.screen.focused().mypromptbox.widget,
+	--		exe_callback = awful.util.eval,
+	--		history_path = awful.util.get_cache_dir() .. "/history_eval",
+	--	})
+	--end, { description = "lua execute prompt", group = "awesome" }),
 	-- Menubar
 	awful.key({ modkey }, "p", function()
 		menubar.show()
@@ -131,7 +136,11 @@ globalkeys = gears.table.join(
 
 	awful.key({}, "XF86AudioMute", function()
 		awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")
-	end, { description = "mute/unmute", group = "audio" })
+	end, { description = "mute/unmute", group = "audio" }),
+
+	awful.key({ modkey }, "x", function()
+		awesome.emit_signal("open::window")
+	end, { description = "run prompt", group = "launcher" })
 )
 
 -- Bind all key numbers to tags.
@@ -158,7 +167,32 @@ for i = 1, 9 do
 					awful.tag.viewonly(tag)
 				end
 			end
-		end, { description = "view tag #" .. i .. " on first screen", group = "tag" })
+		end, { description = "view tag #" .. i .. " on first screen", group = "tag" }),
+
+		-- Move client to tag in screen 1.
+		awful.key({ modkey, "Shift" }, "#" .. i + 9, function()
+			if client.focus then
+				local tag = client.focus.screen.tags[i]
+				if tag then
+					if tag.screen == screen[1] then
+						client.focus:move_to_tag(tag)
+					end
+				end
+			end
+		end, { description = "move focused client to tag #" .. i, group = "tag" }),
+
+		-- Move client to tag in screen 2.
+		awful.key({ modkey_alt, "Shift" }, "#" .. i + 9, function()
+			if client.focus then
+				local tag = client.focus.screen.tags[i]
+				if tag then
+					if tag.screen == screen[2] then
+						client.focus:move_to_tag(tag)
+					end
+				end
+			end
+		end, { description = "move focused client to tag #" .. i, group = "tag" })
+
 		---- Toggle tag display.
 		--awful.key({ modkey, "Control" }, "#" .. i + 9, function()
 		--	local screen = awful.screen.focused()
@@ -167,6 +201,7 @@ for i = 1, 9 do
 		--		awful.tag.viewtoggle(tag)
 		--	end
 		--end, { description = "toggle tag #" .. i, group = "tag" }),
+
 		---- Move client to tag.
 		--awful.key({ modkey, "Shift" }, "#" .. i + 9, function()
 		--	if client.focus then
@@ -176,6 +211,7 @@ for i = 1, 9 do
 		--		end
 		--	end
 		--end, { description = "move focused client to tag #" .. i, group = "tag" }),
+
 		---- Toggle tag on focused client.
 		--awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9, function()
 		--	if client.focus then
