@@ -9,6 +9,7 @@ local dpi = beautiful.xresources.apply_dpi
 theme.useless_gap = 4
 theme.font = "jetBrainsMonoNerdFont 12"
 theme.wallpaper = user.wallpaper
+theme.assets_path = "/home/dude/.config/awesome/assets/"
 
 local layout_path = "/usr/share/awesome/themes/default/layouts/"
 local titlebar_path = user.theme == "biscuit_dark" and os.getenv("HOME") .. "/.config/awesome/assets/titlebar_biscuit/"
@@ -30,13 +31,14 @@ theme.logout_box_bg = "#00000090"
 
 theme.rounded = dpi(4)
 theme.spacing = dpi(4)
+theme.bar_spacing = dpi(0)
 
 -------------------------
 --client-----------------
 -------------------------
 
 theme.client_border_width = dpi(2)
-theme.client_border_color = color.fg_normal
+theme.client_border_color = color.bg_dark
 theme.client_border_color_active = color.red
 
 -------------------------
@@ -46,7 +48,7 @@ theme.client_border_color_active = color.red
 theme.bar_bg = color.bg_dark
 theme.bar_light_bg = color.bg_normal
 
-theme.bar_border_width = dpi(2)
+theme.bar_border_width = dpi(0)
 theme.bar_border_color = color.red
 
 -------------------------

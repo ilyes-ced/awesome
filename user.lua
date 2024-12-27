@@ -15,7 +15,7 @@ local user = {
 	icon_path = os.getenv("HOME") .. "/.icons/Papirus/48x48/apps/",
 	-- icon_path    = os.getenv("HOME") .. '/.icons/Tela/scalable/apps/',
 	-- icon_path    = os.getenv("HOME") .. '/.icons/Zafiro-Icons-Dark-Blue-f/apps/scalable/',
-	theme = "tokyonight",
+	theme = "rosepine",
 	bar_floating = false,
 }
 

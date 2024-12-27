@@ -9,7 +9,7 @@ local theme = require("themes.theme")
 local util = require("util")
 
 -- Create the button text
-local button_text = util.textbox(color.lightblue, "Ubuntu nerd font bold 22", "󰀻")
+local button_text = util.textbox(color.lightblue, theme.font .. " bold 22", "󰣇")
 
 -- Create the button background with proper centering
 local button_bg = wibox.widget({

@@ -9,7 +9,7 @@
   - []
   - []
 - [] all popups
-  - [] applauncher (with icon or modkey)
+  - [] applauncher (with icon and modkey)
   - [] powermenu
   - [] theme changer
   - [] screenshot
@@ -30,3 +30,13 @@
 fix promt_shape in DOCS
 add border option to apps in applauncher
 fix themes for tag preview and app switcher
+
+
+# sidebar widgets
+
+- [x] profile 
+- [] power buttons
+- [] group buttons
+- [] github contribs + activc PRs
+- [] stop watch + laps
+- [] storage + ram + cpu

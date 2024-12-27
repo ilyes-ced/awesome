@@ -9,13 +9,20 @@ local theme = require("themes.theme")
 local util = require("util")
 
 -- Create the button text
-local button_text = util.textbox(color.lightblue, "Ubuntu nerd font bold 22", "󰀻")
+local button_icon = wibox.widget.imagebox(theme.assets_path .. "arch.svg")
 
 -- Create the button background with proper centering
 local button_bg = wibox.widget({
 	{
-		button_text,
-		widget = wibox.container.place, -- Use place container for centering
+		{
+			button_icon,
+			widget = wibox.container.place, -- Use place container for centering
+		},
+		widget = wibox.container.margin,
+		top = dpi(5),
+		bottom = dpi(5),
+		left = dpi(5),
+		right = dpi(5),
 	},
 	widget = wibox.container.background,
 	bg = theme.bg_normal,

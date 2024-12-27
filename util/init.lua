@@ -36,6 +36,16 @@ funcs.textbox = function(color, font, text)
 	})
 end
 
+funcs.imagebox = function(img, height, width)
+	return wibox.widget({
+		image = img,
+		resize = true,
+		forced_height = dpi(height),
+		forced_width = dpi(width),
+		widget = wibox.widget.imagebox,
+	})
+end
+
 funcs.add_hover_effect = function(button, clr_hvr, clr_press, clr_nrml)
 	button:connect_signal("mouse::enter", function()
 		button.bg = clr_hvr
